@@ -1,6 +1,9 @@
 const optionContainer = document.querySelector(".option-container");
 const flipButton = document.querySelector("#flip-button");
 const gamesBoardContainer = document.querySelector("#gamesboard-container");
+const startButton = document.querySelector("#start-button");
+const infoDisplay = document.querySelector("#info");
+const turnDisplay = document.querySelector("#turn-display");
 
 //option choosing
 let angle = 0;
@@ -59,7 +62,7 @@ const destroyer = new Ship("destroyer", 2);
 const submarine = new Ship("submarine", 3);
 const cruiser = new Ship("cruiser", 3);
 const battleship = new Ship("battleship", 4);
-const carrier = new Ship("carier", 5);
+const carrier = new Ship("carrier", 5);
 
 const ships = [destroyer, submarine, cruiser, battleship, carrier];
 let notDropped;
@@ -78,9 +81,9 @@ function getValidity(allBoardBlocks, isHorizontal, startIndex, ship) {
 
   for (let i = 0; i < ship.length; i++) {
     if (isHorizontal) {
-      shipBlocks.push(allBoardBlocks[Number(randomStartIndex) + i]);
+      shipBlocks.push(allBoardBlocks[Number(validStart) + i]);
     } else {
-      shipBlocks.push(allBoardBlocks[Number(randomStartIndex) + i * width]);
+      shipBlocks.push(allBoardBlocks[Number(validStart) + i * width]);
     }
   }
 
@@ -107,7 +110,7 @@ function getValidity(allBoardBlocks, isHorizontal, startIndex, ship) {
   return {
     shipBlocks,
     valid,
-    startId,
+    notTaken,
   };
 }
 
@@ -132,7 +135,7 @@ function addShipPiece(user, ship, startId) {
       shipBlock.classList.add("taken");
     });
   } else {
-    if (user === "computer") addShipPiece(ship);
+    if (user === "computer") addShipPiece(user, ship, startId);
     if (user === "player") notDropped = true;
   }
 }
@@ -160,6 +163,8 @@ function dragStart(e) {
 
 function dragOver(e) {
   e.preventDefault();
+  const ship = ships[draggedShip.id];
+  highlightArea(e.target.id, ship);
 }
 
 function dropShip(e) {
@@ -190,3 +195,47 @@ function highlightArea(startIndex, ship) {
     });
   }
 }
+
+let gameOver = false;
+
+let playerTurn;
+
+//start game
+function startGame() {
+  if (optionContainer.children.length != 0) {
+    infoDisplay.textContent = "Please place all your pieces first!";
+  } else {
+    const allBoardBlocks = document.querySelectorAll("#computer div");
+    allBoardBlocks.forEach((block) =>
+      block.addEventListener("click", handleClick)
+    );
+  }
+}
+
+let playerHits = [];
+let computerHits = [];
+
+function handleClick(e) {
+  if (!gameOver) {
+    if (e.target.classList.contains("taken")) {
+      e.target.classList.add("boom");
+      infoDisplay.textContent = "You hit the computers ship!";
+      let classes = Array.from(e.target.classList);
+      classes.filter((className) => className !== "block");
+      classes.filter((className) => className !== "boom");
+      classes.filter((className) => className !== "taken");
+      playerHits.push(...classes);
+    }
+
+    if (e.target.classList.contains("taken")) {
+      infoDisplay.textContent = "Nothing hit this time";
+      e.target.classList.add("empty");
+    }
+    playerTurn = false;
+    const allBoardBlocks = document.querySelectorAll("computer div");
+    allBoardBlocks.forEach((block) => block.replaceWith(block.cloneNode(true)));
+    setTimeout(computerGo, 3000);
+  }
+}
+
+startButton.addEventListener("click", startGame);
