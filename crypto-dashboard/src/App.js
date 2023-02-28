@@ -3,9 +3,9 @@ import NewsFeed from "./components/NewsFeed";
 
 const App = () => {
   return (
-    <div>
-      <NewsFeed />
+    <div className="app">
       <CurrencyConverter />
+      <NewsFeed />
     </div>
   );
 };
