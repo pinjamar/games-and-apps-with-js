@@ -1,0 +1,6 @@
+[submodule "memory-cards"]
+	path = memory-cards
+	url = https://github.com/pinjamar/memory-cards.git
+[submodule "hangman-game"]
+	path = hangman-game
+	url = https://github.com/pinjamar/hangman-game.git
