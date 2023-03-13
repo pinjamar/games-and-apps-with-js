@@ -4,3 +4,21 @@
 [submodule "hangman-game"]
 	path = hangman-game
 	url = https://github.com/pinjamar/hangman-game.git
+[submodule "relaxer-app"]
+	path = relaxer-app
+	url = https://github.com/pinjamar/relaxer-app.git
+[submodule "exchange-rate-calculator"]
+	path = exchange-rate-calculator
+	url = https://github.com/pinjamar/exchange-rate-calculator.git
+[submodule "videoplayer"]
+	path = videoplayer
+	url = https://github.com/pinjamar/videoplayer.git
+[submodule "cinematrix"]
+	path = cinematrix
+	url = https://github.com/pinjamar/cinematrix.git
+[submodule "random-user-game"]
+	path = random-user-game
+	url = https://github.com/pinjamar/random-user-game.git
+[submodule "random-blog-api"]
+	path = random-blog-api
+	url = https://github.com/pinjamar/random-blog-api.git
