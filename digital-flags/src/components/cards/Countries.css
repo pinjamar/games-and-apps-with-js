@@ -1,0 +1,39 @@
+.countries-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.country {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.flag {
+  height: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.country-title-and-info {
+  margin-left: 10%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 30px;
+}

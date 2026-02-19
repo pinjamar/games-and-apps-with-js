@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --background: white;
+  --text-primary: black;
+  --text-secondary: royalblue;
+  --accent: purple;
+  --dark-elements: hsl(209, 23%, 22%);
+  --dark-background: hsl(207, 26%, 17%);
+  --light-text: hsl(200, 15%, 8%);
+  --light-input: hsl(0, 0%, 52%);
+  --light-backgound: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+}
+
+[data-theme="Dark"] {
+  --background: var(--dark-background);
+  --elements: var(--dark-elements);
+  --text-primary: var(--white);
+}

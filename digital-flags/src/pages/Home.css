@@ -1,0 +1,58 @@
+.search-and-filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+#countriesList {
+  padding-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 20px;
+}
+
+/*SEARCHBAR*/
+
+.searched-country {
+  list-style-type: none;
+  background-color: #eaeaea;
+  border-radius: 3px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "name image";
+  text-align: left;
+}
+
+.searched-country > h2 {
+  grid-area: name;
+  margin-bottom: 0px;
+}
+
+.searched-country > p {
+  grid-area: house;
+  margin: 0;
+  margin-top: -18px;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 20%;
+  margin: 1rem;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+#searchBar {
+  width: 100%;
+  height: 32px;
+  border-radius: 3px;
+  border: 1px solid #eaeaea;
+  padding: 5px 10px;
+  font-size: 14px;
+  -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+}
+
+#searchBar:focus {
+  width: 120%;
+}
