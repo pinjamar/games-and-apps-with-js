@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,700");
+
+body {
+  background-color: rgb(247, 245, 245);
+}
+
+.udomi-carusel-button {
+  color: green;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: aquamarine;
+  cursor: pointer;
+}
+
+#searchbar {
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid rgb(180, 180, 180);
+  outline: none;
+  margin: 30px 10px;
+}
+
+input[type="text"] {
+  width: 37%;
+  -webkit-transition: width 0.15s ease-in-out;
+  transition: width 0.15s ease-in-out;
+}
+
+input[type="text"]:focus {
+  width: 55%;
+}
+
+#show-more {
+  float: right;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  .cats-grid {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-radius: 5px;
+      margin: 0 auto;
+      position: relative;
+      flex-wrap: wrap;
+
+      .cat {
+        .cat-name {
+          margin: 0;
+        }
+
+        .color-age {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cats-grid {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 5px;
+      margin: 0 auto;
+      position: relative;
+      flex-wrap: wrap;
+
+      .cat {
+        .cat-name {
+          margin: 0;
+        }
+
+        .color-age {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

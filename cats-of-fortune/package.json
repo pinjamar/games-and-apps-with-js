@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "prescss": "node-sass scss/main.scss css/main.css",
+    "scss": "node-sass --watch scss/main.scss css/main.css",
+    "server": "live-server .",
+    "dev": "concurrently \"npm:scss\" \"npm:server\""
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0",
+    "live-server": "^1.2.1",
+    "node-sass": "^6.0.0"
+  }
+}
